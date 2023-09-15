@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Play Tic-Tac-Toe</title>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <header id="main-header">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit;">Tic-Tac-Toe</a></h1>
+        <h4>--A game of noughts and crosses--</h4>
+      </header>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="Play.html">Play Tic-Tac-Toe</a>
+        <a href="Contact.html">Contact me</a>
+      </nav>
+
+    <h1 id="playh1">Play Tic-Tac-Toe</h1>
+    <div id="gameboard">
+      <div class="square" id="0"></div>
+      <div class="square" id="1"></div>
+      <div class="square" id="2"></div>
+      <br>
+      <div class="square" id="3"></div>
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <br>
+      <div class="square" id="6"></div>
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+    </div>
+    <footer id="footer">
+        <div class="socialmedia">
+            <h6>Brought to you by Subarna Bajracharya</h6>
+            <a href="https://www.instagram.com/subarna_bajra/"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/itsbajra/"><img src="linkedin.png" alt="TikTok"></a>
+            <a href="https://www.youtube.com/@itsbajra"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+      var player = "X";
+
+      document.getElementById("gameboard").addEventListener("click", function(event) {
+        if (event.target.matches(".square")) {
+          if (event.target.textContent === "") {
+            event.target.textContent = player;
+            checkForWinner();
+            player = player === "X" ? "O" : "X";
+          }
+        }
+      });
+
+      function checkForWinner() {
+          var winningCombinations = ["012", "345", "678", "036", "147", "258", "048", "246"];
+          var squares = document.getElementsByClassName("square");
+          for(var i = 0; i < winningCombinations.length; i++) {
+            var a = squares[winningCombinations[i][0]].textContent;
+            var b = squares[winningCombinations[i][1]].textContent;
+            var c = squares[winningCombinations[i][2]].textContent;
+            if ((a !== "") && (a === b) && (b === c)) {
+              alert(player + " wins!");
+              resetBoard();
+            }
+          }
+          if (checkTie()) {
+            alert("It's a tie!");
+            resetBoard();
+          }
+      }
+
+      function checkTie() {
+        var squares = document.getElementsByClassName("square");
+        for (var i = 0; i < squares.length; i++) {
+          if (squares[i].textContent === "") {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function resetBoard() {
+        var squares = document.getElementsByClassName("square");
+        for (var i = 0; i < squares.length; i++) {
+          squares[i].textContent = "";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact me</title>
+</head>
+
+<body>
+    <header id="main-header">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit;">Tic-Tac-Toe</a></h1>
+        <h4>--A game of noughts and crosses--</h4>
+      </header>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="Play.html">Play Tic-Tac-Toe</a>
+        <a href="Contact.html">Contact me</a>
+      </nav>
+
+      <header id="contactheader">
+        <h2>Contact me</h2>
+    </header>
+
+    <div class="contact">
+        <form method="post">
+                <label for="name">Name :</label>
+                <input type="name" name="name" id="name" type="text" placeholder="Your name..." required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" type="email" placeholder="Your email..." required>
+                <label for="message">Message :</label>
+                <textarea type="message" name="message" id="message" rows="4" placeholder="Type your message..." required></textarea>
+                <input type="submit" value="Send Message" id="submit-button">
+        </form>
+    </div>
+    <footer id="footer">
+        <div class="socialmedia">
+            <h6>Brought to you by Subarna Bajracharya</h6>
+            <a href="https://www.instagram.com/subarna_bajra/"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/itsbajra/"><img src="linkedin.png" alt="TikTok"></a>
+            <a href="https://www.youtube.com/@itsbajra"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+    </footer>
+</body>
+<script>
+    const form = document.querySelector('form');
+    const submitBtn = document.getElementById('submit-button');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert('Your message has been sent!');
+        form.reset();
+    });
+</script>
+
+</script>
+</html>
